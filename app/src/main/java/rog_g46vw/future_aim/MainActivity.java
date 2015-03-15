@@ -17,10 +17,8 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -72,12 +70,13 @@ public class MainActivity extends ActionBarActivity {
         return ssid;
         //Toast.makeText(this, ssid, Toast.LENGTH_SHORT).show();
     }
+//changes
 
 
     @Override
     protected void onResume() {
         super.onResume();
-        if(FirstTimeRun == true) {
+        if(FirstTimeRun) {
             Toast.makeText(this, "Welcome back", Toast.LENGTH_SHORT).show();
         }
         else {
@@ -114,13 +113,13 @@ public class MainActivity extends ActionBarActivity {
         }
         else if(id == R.id.action_battery_stat) {
 
-            if(item.isChecked() == true){
+            if(item.isChecked()){
                 item.setChecked(!item.isChecked());
                 Toast.makeText(this, "Un-checked", Toast.LENGTH_SHORT).show();
             }
             else {
                 item.setChecked(!item.isChecked());
-                Intent batteryStatus = registerReceiver(null, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));;
+                Intent batteryStatus = registerReceiver(null, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
                 int level = batteryStatus.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
                 int scale = batteryStatus.getIntExtra(BatteryManager.EXTRA_SCALE, -1);
                 float batteryPct = (level / (float)scale)*100;
