@@ -9,23 +9,26 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-        <!-- Change to full screen by changing theme    -->
+
+        <!-- Change to full screen by changing theme -->
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait"
-            >
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".Settings"
             android:label="@string/action_settings"
             android:screenOrientation="portrait" />
-        </application>
+        <activity
+            android:name=".passwdToggle"
+            android:label="@string/title_activity_passwd_toggle" >
+        </activity>
+    </application>
 
 </manifest>

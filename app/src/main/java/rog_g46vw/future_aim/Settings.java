@@ -1,17 +1,26 @@
 package rog_g46vw.future_aim;
 
+import android.app.ListActivity;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 
-public class Settings extends ActionBarActivity {
+public class Settings extends ListActivity {
+
+    String settingItems[] = {"Set Password Toggle", "option2", "option3"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+        setListAdapter(new ArrayAdapter<String>(Settings.this, android.R.layout.simple_list_item_1, settingItems));
+
     }
 
 
@@ -35,5 +44,24 @@ public class Settings extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+
+        String optionSelected = settingItems[position] ;
+
+        try {
+            if(position == 0) {
+                Class passwordToggle = Class.forName("rog_g46vw.future_aim." + optionSelected);
+                Intent openClass = new Intent(Settings.this, passwordToggle);
+                startActivity(openClass);
+            }else if(position == 1)
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+
     }
 }

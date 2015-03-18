@@ -4,4 +4,5 @@
     <string name="action_battery_stat">Battery Info</string>
     <string name="title_activity_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_passwd_toggle">Password Toggle</string>
 </resources>
